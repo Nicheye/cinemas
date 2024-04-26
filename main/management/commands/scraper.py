@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 from main.models import Cinema
 import requests
 from datetime import datetime
-
+count = Cinema.objects.count()
 class Command(BaseCommand):
     help = 'Fetch films data from an external API and save to database'
 
@@ -49,7 +49,8 @@ class Command(BaseCommand):
                     cinemas_to_create.append(cin_obj)
 
                 # Bulk insert into the database
-                Cinema.objects.bulk_create(cinemas_to_create)
+                if count<1473:
+                    Cinema.objects.bulk_create(cinemas_to_create)
 
 
 

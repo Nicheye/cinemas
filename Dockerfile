@@ -11,8 +11,8 @@ RUN pip install -r requirements.txt
 COPY . /code/
 
 # Add makemigrations and migrate commands
-RUN python manage.py makemigrations
-RUN python manage.py wait_for_db
-RUN python manage.py migrate
+# RUN python manage.py makemigrations
+# RUN python manage.py wait_for_db
+# RUN python manage.py migrate
 
-RUN python manage.py scraper
+# RUN python manage.py scraper
